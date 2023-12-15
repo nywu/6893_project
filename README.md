@@ -1,3 +1,8 @@
+Trending YouTube - Analysis and Prediction
+Help video creators better evaluate video descriptions when posting videos.
+Assist platforms in evaluating and adjusting video exposure.
+
+
 Steps for visualization:
 1. Open a terminal or command prompt in project directory.
 2. Install the required server tools, such as npm install -g http-server to install http-server. In a terminal or command prompt, navigate to project directory.
