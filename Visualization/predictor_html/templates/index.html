@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Video Like Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select,
+        input[type="text"],
+        input[type="number"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: red;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>YouTube Video Like Predictor</h2>
+    
+    <form method="post" action="/predict">
+        <label for="selected_region">Select Region:</label><br>
+        <select id="selected_region" name="selected_region">
+            <option value="CA">Canada</option>
+            <option value="FR">France</option>
+            <option value="IN">India</option>
+            <option value="US">USA</option>
+        </select><br>
+
+        <label for="category">Video Category:</label><br>
+        <select id="category" name="category">
+            <option value="10">Music</option>
+            <option value="15">Pets & Animals</option>
+            <option value="17">Sports</option>
+            <option value="20">Gaming</option>
+            <option value="24">Entertainment</option>
+            <option value="27">Education</option>
+            <option value="30">Movies</option>
+        </select><br>
+
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+
+        <label for="description">Description:</label><br>
+        <input type="text" id="description" name="description"><br>
+
+        <label for="tag">Tags(split by comma):</label><br>
+        <input type="text" id="tag" name="tag"><br>
+
+        <label for="time_selection">Select Time:</label><br>
+        <select id="time_selection" name="time_selection">
+            <option value="1800">30min</option>
+            <option value="3600">1h</option>
+            <option value="43200">12h</option>
+            <option value="86400">1day</option>
+            <option value="259200">3day</option>
+        </select><br>
+
+        <label for="view_count">View Count:</label><br>
+        <input type="number" id="view_count" name="view_count" min="0" step="1"><br>
+
+        <label for="comment_count">Comment Count:</label><br>
+        <input type="number" id="comment_count" name="comment_count" min="0" step="1"><br>
+
+        <input type="submit" value="Predict Likes">
+    </form>
+
+    {% if error_message %}
+        <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+
+    {% if prediction is not none %}
+    <p>Predicted Likes: {{ prediction }}</p>
+    {% endif %}
+
+    <button onclick="goBack()">Back to Home page</button>
+    <script>
+        function goBack() {
+            window.location.href = "http://127.0.0.1:8080";
+        }
+    </script>
+</body>
+</html>
