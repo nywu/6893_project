@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis and prediction of Youtube data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Choose one page:</h1>
+    
+    <button onclick="redirectToPage1()">EDA result show</button>
+    <button onclick="redirectToApp()">Prediction of Likes</button>
+    <button onclick="redirectToAirflow()">Top 10 Liked Airflow</button>
+
+    <script>
+        function redirectToPage1() {
+            window.location.href = "EDA_result.html"; 
+        }
+
+        function redirectToApp() {
+            window.location.href = "http://127.0.0.1:5000"; 
+        }
+
+        function redirectToAirflow() {
+            window.open("http://35.224.89.195:8000/top10_liked.html", "_blank");
+        }
+    </script>
+</body>
+</html>
