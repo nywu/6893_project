@@ -12,11 +12,16 @@ Steps for visualization:
 5. Execute python app.py in the path .\Visualization\predictor_html\predicthtml
 
 Steps for Airflow:
-1. Set up Airflow environment, start the scheduler
-2. Upload files as the directory sturcture below
-dags/
-	scrap_predict_new.py
-	country_code.txt
-	api_key.txt
-	models/
-3. run .py and 'airflow db init'
+1. Set up Airflow environment and initialize the Airflow database
+2. Start the Airflow scheduler
+3. Upload files in the specified directory structure
+├── dags/
+│ ├── scrap_predict_new.py
+│ ├── country_code.txt
+│ ├── api_key.txt
+│ ├── model/
+│ │ ├── category_id.json
+│ │ ├── predict_model.pkl
+│ │ └── kmeans_model.pkl
+4. Execute the Python script: $ python ~/airflow/dags/scrap_predict_new.py
+5. Trigger the DAG in Airflow
