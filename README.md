@@ -15,13 +15,18 @@ Steps for Airflow:
 1. Set up Airflow environment and initialize the Airflow database
 2. Start the Airflow scheduler
 3. Upload files in the specified directory structure
+```markdown
 ├── dags/
-│ ├── scrap_predict_new.py
-│ ├── country_code.txt
-│ ├── api_key.txt
-│ ├── model/
-│ │ ├── category_id.json
-│ │ ├── predict_model.pkl
-│ │ └── kmeans_model.pkl
-4. Execute the Python script: $ python ~/airflow/dags/scrap_predict_new.py
-5. Trigger the DAG in Airflow
+│   ├── scrap_predict_new.py
+│   ├── country_code.txt
+│   ├── api_key.txt
+│   ├── model/
+│   │   ├── category_id.json
+│   │   ├── predict_model.pkl
+│   │   └── kmeans_model.pkl
+```
+5. Execute the Python script
+```bash
+python ~/airflow/dags/scrap_predict_new.py
+```
+7. Trigger the DAG in Airflow
